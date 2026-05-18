@@ -2051,3 +2051,74 @@
 [2026-05-17 21:56:27,862] INFO GET Transactions API called
 [2026-05-17 21:56:48,242] INFO POST Transaction: {'title': 'course', 'amount': 50000000, 'type': 'expense'}
 [2026-05-17 21:56:48,305] INFO GET Transactions API called
+[2026-05-18 10:34:35,961] INFO GET Transactions API called
+[2026-05-18 10:35:14,054] INFO POST Transaction: {'title': 'bottle', 'amount': 200, 'type': 'expense'}
+[2026-05-18 10:35:14,156] INFO GET Transactions API called
+[2026-05-18 13:39:05,151] INFO GET Transactions API called
+[2026-05-18 13:39:19,124] INFO POST Transaction: {'title': 'bus', 'amount': 5000, 'type': 'expense'}
+[2026-05-18 13:39:19,185] INFO GET Transactions API called
+[2026-05-18 14:06:59,318] INFO GET Transactions API called
+[2026-05-18 14:09:00,753] INFO GET Transactions API called
+[2026-05-18 14:09:19,190] INFO POST Transaction: {'title': 'me', 'amount': 5000, 'type': 'expense'}
+[2026-05-18 14:09:19,242] INFO GET Transactions API called
+[2026-05-18 14:11:56,803] INFO GET Transactions API called
+[2026-05-18 14:18:56,736] INFO GET Transactions API called
+[2026-05-18 14:19:19,408] INFO POST Transaction: {'title': 'bike', 'amount': 2000, 'type': 'income'}
+[2026-05-18 14:19:19,487] INFO GET Transactions API called
+[2026-05-18 14:19:29,730] INFO GET Transactions API called
+[2026-05-18 14:19:36,197] INFO GET Transactions API called
+[2026-05-18 14:19:44,937] INFO GET Transactions API called
+[2026-05-18 14:19:52,515] INFO Transaction Deleted: 14
+[2026-05-18 14:19:52,525] INFO GET Transactions API called
+[2026-05-18 14:19:55,079] INFO Transaction Deleted: 15
+[2026-05-18 14:19:55,089] INFO GET Transactions API called
+[2026-05-18 14:19:59,357] INFO Transaction Deleted: 11
+[2026-05-18 14:19:59,364] INFO GET Transactions API called
+[2026-05-18 14:20:01,387] INFO Transaction Deleted: 12
+[2026-05-18 14:20:01,399] INFO GET Transactions API called
+[2026-05-18 14:20:09,802] INFO GET Transactions API called
+[2026-05-18 14:20:12,093] INFO Transaction Deleted: 9
+[2026-05-18 14:20:12,110] INFO GET Transactions API called
+[2026-05-18 14:20:23,429] INFO GET Transactions API called
+[2026-05-18 14:20:32,041] INFO Transaction Deleted: 13
+[2026-05-18 14:20:32,049] INFO GET Transactions API called
+[2026-05-18 14:20:36,341] INFO GET Transactions API called
+[2026-05-18 14:20:39,099] INFO Transaction Deleted: 10
+[2026-05-18 14:20:39,112] INFO GET Transactions API called
+[2026-05-18 14:20:44,729] INFO Transaction Deleted: 8
+[2026-05-18 14:20:44,737] INFO GET Transactions API called
+[2026-05-18 14:20:47,429] INFO Transaction Deleted: 7
+[2026-05-18 14:20:47,437] INFO GET Transactions API called
+[2026-05-18 14:20:49,308] INFO Transaction Deleted: 6
+[2026-05-18 14:20:49,317] INFO GET Transactions API called
+[2026-05-18 14:20:52,044] INFO Transaction Deleted: 5
+[2026-05-18 14:20:52,062] INFO GET Transactions API called
+[2026-05-18 14:20:54,392] INFO Transaction Deleted: 3
+[2026-05-18 14:20:54,400] INFO GET Transactions API called
+[2026-05-18 14:20:56,566] INFO Transaction Deleted: 2
+[2026-05-18 14:20:56,574] INFO GET Transactions API called
+[2026-05-18 14:21:01,130] INFO Transaction Deleted: 1
+[2026-05-18 14:21:01,137] INFO GET Transactions API called
+[2026-05-18 14:21:44,173] INFO POST Transaction: {'title': 'bike', 'amount': 5000, 'type': 'income'}
+[2026-05-18 14:21:44,244] INFO GET Transactions API called
+[2026-05-18 15:45:12,818] INFO POST Transaction: {'title': 'Pizza', 'amount': 500, 'type': 'expense'}
+[2026-05-18 15:55:51,808] INFO GET Transactions API called
+[2026-05-18 15:56:12,873] INFO POST Transaction: {'title': 'house', 'amount': 10000, 'type': 'expense'}
+[2026-05-18 15:56:12,990] INFO GET Transactions API called
+[2026-05-18 15:56:48,985] INFO GET Transactions API called
+[2026-05-18 15:57:10,829] INFO Transaction Deleted: 18
+[2026-05-18 15:57:10,859] INFO GET Transactions API called
+[2026-05-18 15:57:14,602] INFO Transaction Deleted: 16
+[2026-05-18 15:57:14,616] INFO GET Transactions API called
+[2026-05-18 15:57:18,540] INFO GET Transactions API called
+[2026-05-18 15:57:21,897] INFO Transaction Deleted: 4
+[2026-05-18 15:57:21,912] INFO GET Transactions API called
+[2026-05-18 16:04:51,049] INFO GET Transactions API called
+[2026-05-18 16:08:45,093] INFO GET Transactions API called
+[2026-05-18 16:08:57,073] INFO POST Transaction: {'title': 'uber', 'amount': 10000, 'type': 'expense'}
+[2026-05-18 16:08:57,160] INFO GET Transactions API called
+[2026-05-18 16:09:29,347] INFO POST Transaction: {'title': 'clothes', 'amount': 20000, 'type': 'income'}
+[2026-05-18 16:09:29,514] INFO GET Transactions API called
+[2026-05-18 16:13:27,618] INFO GET Transactions API called
+[2026-05-18 16:16:43,663] INFO POST Transaction: {'title': 'hospital', 'amount': 100000, 'type': 'expense'}
+[2026-05-18 16:16:43,800] INFO GET Transactions API called

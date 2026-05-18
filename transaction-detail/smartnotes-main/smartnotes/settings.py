@@ -1,6 +1,7 @@
 
 from pathlib import Path
 import os
+from datetime import timedelta
 
 # Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -18,7 +19,10 @@ ALLOWED_HOSTS = []
 # INSTALLED APPS
 
 INSTALLED_APPS = [
+    
+    'django_prometheus',
 
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,6 +40,7 @@ INSTALLED_APPS = [
 # MIDDLEWARE
 
 MIDDLEWARE = [
+    'django_prometheus.middleware.PrometheusBeforeMiddleware',
 
     'corsheaders.middleware.CorsMiddleware',
 
@@ -52,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
 
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_prometheus.middleware.PrometheusAfterMiddleware',
 ]
 
 
@@ -209,7 +215,12 @@ LOGGING = {
     },
 }
 # CORS
+SIMPLE_JWT = {
 
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
+
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
+}
 # CORS
 
 # settings.py

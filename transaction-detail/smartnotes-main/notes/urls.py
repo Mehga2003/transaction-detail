@@ -129,7 +129,23 @@ urlpatterns = [
     ),
 
     # =========================
-    # API
+    # AI API
+    # =========================
+    
+path(
+    'api/ai-category/',
+    views.ai_category,
+    name='ai_category'
+),
+
+path(
+    'api/ai-insights/',
+    views.ai_insights,
+    name='ai_insights'
+),
+
+    # =========================
+    # OTHER API
     # =========================
     path(
         'github-languages/<str:username>/',

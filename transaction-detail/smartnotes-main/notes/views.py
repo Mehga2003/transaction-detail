@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from .ai_utils import predict_category
+from collections import defaultdict
 import requests
 import logging
+
 
 logger = logging.getLogger('notes')
 
@@ -189,6 +191,9 @@ def transactions_api(request):
 
             data.append({
 
+                "id":
+                    item.id,
+
                 "title":
                     item.title,
 
@@ -230,6 +235,237 @@ def transactions_api(request):
             "id":
                 transaction.id
         })
+
+
+# =========================================
+# UPDATE + DELETE TRANSACTION
+# =========================================
+
+@api_view(['PUT', 'DELETE'])
+
+def transaction_detail(request, id):
+
+    try:
+
+        transaction = Transaction.objects.get(id=id)
+
+    except Transaction.DoesNotExist:
+
+        return Response(
+
+            {
+                "error":
+                    "Transaction not found"
+            },
+
+            status=404
+        )
+
+    ##################################################
+    # UPDATE
+    ##################################################
+
+    if request.method == 'PUT':
+
+        data = request.data
+
+        transaction.title = data.get(
+            "title",
+            transaction.title
+        )
+
+        transaction.amount = data.get(
+            "amount",
+            transaction.amount
+        )
+
+        transaction.type = data.get(
+            "type",
+            transaction.type
+        )
+
+        transaction.save()
+
+        logger.info(
+            f"Transaction Updated: {transaction.id}"
+        )
+
+        return Response({
+
+            "message":
+                "Transaction Updated"
+        })
+
+    ##################################################
+    # DELETE
+    ##################################################
+
+    elif request.method == 'DELETE':
+
+        transaction.delete()
+
+        logger.info(
+            f"Transaction Deleted: {id}"
+        )
+
+        return Response({
+
+            "message":
+                "Deleted Successfully"
+        })
+
+@api_view(['POST'])
+def ai_category(request):
+
+    text = request.data.get(
+        'text',
+        ''
+    )
+
+    category = predict_category(text)
+
+    return Response({
+
+        'category': category
+    })
+# AI SPENDING INSIGHTS
+# =========================================
+# =========================================
+# AI SPENDING INSIGHTS
+# =========================================
+# =========================================
+# AI SPENDING INSIGHTS
+# =========================================
+
+@api_view(['GET'])
+
+def ai_insights(request):
+
+    transactions = Transaction.objects.all()
+
+    category_totals = defaultdict(float)
+
+    total_income = 0
+
+    total_expense = 0
+
+    for transaction in transactions:
+
+        amount = float(
+            transaction.amount
+        )
+
+        transaction_type = (
+            transaction.type
+            .lower()
+            .strip()
+        )
+
+        # =============================
+        # INCOME
+        # =============================
+
+        if transaction_type == 'income':
+
+            total_income += amount
+
+        # =============================
+        # EXPENSE
+        # =============================
+
+        elif transaction_type == 'expense':
+
+            total_expense += amount
+
+            category = predict_category(
+                transaction.title
+            )
+
+            category_totals[category] += amount
+
+    # =============================
+    # SAVINGS
+    # =============================
+
+    savings = total_income - total_expense
+
+    # =============================
+    # HIGHEST CATEGORY
+    # =============================
+
+    highest_category = "None"
+
+    highest_amount = 0
+
+    if category_totals:
+
+        highest_category = max(
+
+            category_totals,
+
+            key=category_totals.get
+        )
+
+        highest_amount = category_totals[
+            highest_category
+        ]
+
+    # =============================
+    # AI INSIGHTS
+    # =============================
+
+    insights = []
+
+    insights.append(
+
+        f"Your total income is Rs.{total_income}."
+    )
+
+    insights.append(
+
+        f"Your total expense is Rs.{total_expense}."
+    )
+
+    insights.append(
+
+        f"Your current savings are Rs.{savings}."
+    )
+
+    if highest_category != "None":
+
+        insights.append(
+
+            f"You spent the most on {highest_category}."
+        )
+
+        insights.append(
+
+            f"Highest category expense is Rs.{highest_amount}."
+        )
+
+    # =============================
+    # RESPONSE
+    # =============================
+
+    return Response({
+
+        'total_income': total_income,
+
+        'total_expense': total_expense,
+
+        'savings': savings,
+
+        'highest_category': highest_category,
+
+        'highest_amount': highest_amount,
+
+        'category_breakdown': dict(
+            category_totals
+        ),
+
+        'insights': insights,
+    })
+
 # =========================================
 # GITHUB TOKEN
 # =========================================
@@ -298,10 +534,6 @@ def github_languages(request, username):
             timeout=10
         )
 
-        ##################################################
-        # USER NOT FOUND
-        ##################################################
-
         if response.status_code == 404:
 
             return Response(
@@ -313,10 +545,6 @@ def github_languages(request, username):
 
                 status=status.HTTP_404_NOT_FOUND
             )
-
-        ##################################################
-        # RATE LIMIT
-        ##################################################
 
         if response.status_code == 403:
 
@@ -334,10 +562,6 @@ def github_languages(request, username):
 
         repos = response.json()
 
-        ##################################################
-        # EMPTY REPOS
-        ##################################################
-
         if not repos:
 
             return Response(
@@ -350,10 +574,6 @@ def github_languages(request, username):
 
         language_totals = {}
 
-        ##################################################
-        # LANGUAGE URLS
-        ##################################################
-
         language_urls = [
 
             repo.get("languages_url")
@@ -362,10 +582,6 @@ def github_languages(request, username):
 
             if repo.get("languages_url")
         ]
-
-        ##################################################
-        # FETCH IN PARALLEL
-        ##################################################
 
         with ThreadPoolExecutor(
 
@@ -394,10 +610,6 @@ def github_languages(request, username):
                         + bytes_used
                     )
 
-        ##################################################
-        # NO LANGUAGE DATA
-        ##################################################
-
         if not language_totals:
 
             return Response(
@@ -407,10 +619,6 @@ def github_languages(request, username):
                         "No language data found"
                 }
             )
-
-        ##################################################
-        # PERCENTAGES
-        ##################################################
 
         total_bytes = sum(
             language_totals.values()
@@ -429,10 +637,6 @@ def github_languages(request, username):
             in language_totals.items()
         }
 
-        ##################################################
-        # SORT DESC
-        ##################################################
-
         sorted_percentages = dict(
 
             sorted(
@@ -444,10 +648,6 @@ def github_languages(request, username):
                 reverse=True
             )
         )
-
-        ##################################################
-        # FINAL RESPONSE
-        ##################################################
 
         return Response({
 
@@ -461,10 +661,6 @@ def github_languages(request, username):
                 sorted_percentages
         })
 
-    ##################################################
-    # TIMEOUT
-    ##################################################
-
     except requests.exceptions.Timeout:
 
         return Response(
@@ -477,10 +673,6 @@ def github_languages(request, username):
             status=status.HTTP_408_REQUEST_TIMEOUT
         )
 
-    ##################################################
-    # REQUEST ERROR
-    ##################################################
-
     except requests.exceptions.RequestException as e:
 
         return Response(
@@ -492,10 +684,6 @@ def github_languages(request, username):
 
             status=status.HTTP_500_INTERNAL_SERVER_ERROR
         )
-
-    ##################################################
-    # UNKNOWN ERROR
-    ##################################################
 
     except Exception as e:
 
