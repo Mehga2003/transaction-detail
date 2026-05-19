@@ -1,0 +1,27 @@
+# ENV FILES
+.env
+.env.*
+
+# EXAMPLE ENV
+!.env.example
+
+# PYTHON
+__pycache__/
+*.pyc
+
+# SQLITE
+db.sqlite3
+
+# LOGS
+*.log
+
+# VENV
+venv/
+env/
+
+# VS CODE
+.vscode/
+
+# FLUTTER
+.dart_tool/
+build/
