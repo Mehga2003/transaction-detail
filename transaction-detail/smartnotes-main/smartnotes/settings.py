@@ -1,4 +1,7 @@
 
+from decouple import config
+
+import os
 from pathlib import Path
 import os
 from datetime import timedelta
@@ -7,11 +10,9 @@ from datetime import timedelta
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# SECURITY
+SECRET_KEY = config('SECRET_KEY')
 
-SECRET_KEY = 'django-insecure-)-mpgka#y6dehc6r@8wz(7)$9ib8mnxx=(l&t!4j_!bi^vq!t+'
-
-DEBUG = True
+DEBUG = config('DEBUG',cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -221,7 +222,6 @@ SIMPLE_JWT = {
 
     'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
 }
-# CORS
 
 # settings.py
 
@@ -236,3 +236,4 @@ CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:8000",
     "http://10.0.2.2:8000", 
 ]
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

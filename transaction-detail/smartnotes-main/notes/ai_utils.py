@@ -1,10 +1,6 @@
 from .ai_config import model
 
 
-# =========================================
-# AI CATEGORY PREDICTION
-# =========================================
-
 def predict_category(text):
 
     text_lower = text.lower()
@@ -41,6 +37,21 @@ def predict_category(text):
         "taxi",
         "petrol",
         "fuel",
+    ]
+
+    # =====================================
+    # SHOPPING
+    # =====================================
+
+    shopping_keywords = [
+
+        "amazon",
+        "flipkart",
+        "clothes",
+        "shoes",
+        "shopping",
+        "laptop",
+        "mobile",
     ]
 
     # =====================================
@@ -110,6 +121,12 @@ def predict_category(text):
 
             return "Travel"
 
+    for word in shopping_keywords:
+
+        if word in text_lower:
+
+            return "Shopping"
+
     for word in entertainment_keywords:
 
         if word in text_lower:
@@ -140,9 +157,10 @@ def predict_category(text):
 
     prompt = f"""
 
-Categorize this expense into ONE category only.
+Categorize this expense into EXACTLY ONE category.
 
-Categories:
+Allowed categories ONLY:
+
 Food
 Travel
 Shopping
@@ -155,7 +173,11 @@ Other
 Expense:
 {text}
 
-Return ONLY category name.
+Rules:
+- Return ONLY one word
+- Do NOT explain
+- Do NOT add punctuation
+- Do NOT create new categories
 
 """
 
@@ -165,9 +187,29 @@ Return ONLY category name.
             prompt
         )
 
-        category = response.text.strip()
+        category = (
+            response.text
+            .strip()
+            .replace("*", "")
+        )
 
-        return category
+        allowed_categories = [
+
+            "Food",
+            "Travel",
+            "Shopping",
+            "Entertainment",
+            "Bills",
+            "Health",
+            "Education",
+            "Other",
+        ]
+
+        if category in allowed_categories:
+
+            return category
+
+        return "Other"
 
     except Exception as e:
 

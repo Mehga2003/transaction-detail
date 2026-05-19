@@ -2122,3 +2122,67 @@
 [2026-05-18 16:13:27,618] INFO GET Transactions API called
 [2026-05-18 16:16:43,663] INFO POST Transaction: {'title': 'hospital', 'amount': 100000, 'type': 'expense'}
 [2026-05-18 16:16:43,800] INFO GET Transactions API called
+[2026-05-18 16:26:16,247] INFO GET Transactions API called
+[2026-05-18 16:39:07,594] INFO GET Transactions API called
+[2026-05-18 16:39:20,086] INFO GET Transactions API called
+[2026-05-18 16:39:26,156] INFO GET Transactions API called
+[2026-05-18 16:39:31,360] INFO GET Transactions API called
+[2026-05-18 16:39:34,316] INFO Transaction Deleted: 19
+[2026-05-18 16:39:34,343] INFO GET Transactions API called
+[2026-05-18 16:39:37,689] INFO Transaction Deleted: 20
+[2026-05-18 16:39:37,709] INFO GET Transactions API called
+[2026-05-18 16:39:51,601] INFO POST Transaction: {'title': 'clothes', 'amount': 10000, 'type': 'expense'}
+[2026-05-18 16:39:51,716] INFO GET Transactions API called
+[2026-05-18 16:40:03,472] INFO Transaction Updated: 21
+[2026-05-18 16:40:03,563] INFO GET Transactions API called
+[2026-05-18 16:40:39,597] INFO POST Transaction: {'title': 'pizza', 'amount': 20000, 'type': 'expense'}
+[2026-05-18 16:40:39,727] INFO GET Transactions API called
+[2026-05-18 16:42:04,297] INFO POST Transaction: {'title': 'food', 'amount': 30000, 'type': 'expense'}
+[2026-05-18 16:42:04,409] INFO GET Transactions API called
+[2026-05-18 16:43:23,556] INFO GET Transactions API called
+[2026-05-18 16:43:41,393] INFO Transaction Deleted: 24
+[2026-05-18 16:43:41,434] INFO GET Transactions API called
+[2026-05-18 16:43:46,339] INFO GET Transactions API called
+[2026-05-18 16:43:48,872] INFO Transaction Deleted: 23
+[2026-05-18 16:43:48,902] INFO GET Transactions API called
+[2026-05-18 16:44:06,773] INFO POST Transaction: {'title': 'home', 'amount': 1000000, 'type': 'expense'}
+[2026-05-18 16:44:06,861] INFO GET Transactions API called
+[2026-05-18 16:51:56,278] INFO GET Transactions API called
+[2026-05-18 16:52:49,076] INFO GET Transactions API called
+[2026-05-18 17:39:15,920] INFO GET Transactions API called
+[2026-05-18 17:41:05,422] INFO GET Transactions API called
+[2026-05-18 17:47:29,124] INFO GET Transactions API called
+[2026-05-18 17:47:53,188] INFO POST Transaction: {'title': 'hospital', 'amount': 20000, 'type': 'income'}
+[2026-05-18 17:47:53,371] INFO GET Transactions API called
+[2026-05-18 17:54:25,164] INFO GET Transactions API called
+[2026-05-18 17:55:25,564] INFO POST Transaction: {'title': 'Bills', 'amount': 50000000, 'type': 'expense'}
+[2026-05-18 17:55:25,672] INFO GET Transactions API called
+[2026-05-18 17:59:42,767] INFO GET Transactions API called
+[2026-05-18 17:59:59,306] INFO POST Transaction: {'title': 'burger', 'amount': 10000, 'type': 'expense'}
+[2026-05-18 17:59:59,623] INFO GET Transactions API called
+[2026-05-18 18:00:21,965] INFO GET Transactions API called
+[2026-05-18 18:00:25,335] INFO Transaction Deleted: 27
+[2026-05-18 18:00:25,356] INFO GET Transactions API called
+[2026-05-18 18:00:30,043] INFO Transaction Deleted: 25
+[2026-05-18 18:00:30,103] INFO GET Transactions API called
+[2026-05-18 18:00:42,701] INFO Transaction Updated: 26
+[2026-05-18 18:00:42,799] INFO GET Transactions API called
+[2026-05-19 09:37:05,247] INFO GET Transactions API called
+[2026-05-19 09:37:16,987] INFO Transaction Deleted: 28
+[2026-05-19 09:37:17,001] INFO GET Transactions API called
+[2026-05-19 09:37:18,994] INFO Transaction Deleted: 26
+[2026-05-19 09:37:19,014] INFO GET Transactions API called
+[2026-05-19 09:37:21,639] INFO Transaction Deleted: 22
+[2026-05-19 09:37:21,672] INFO GET Transactions API called
+[2026-05-19 09:37:23,470] INFO Transaction Deleted: 21
+[2026-05-19 09:37:23,473] INFO GET Transactions API called
+[2026-05-19 09:37:25,650] INFO Transaction Deleted: 17
+[2026-05-19 09:37:25,661] INFO GET Transactions API called
+[2026-05-19 09:37:37,134] INFO POST Transaction: {'title': 'burger', 'amount': 1000, 'type': 'expense'}
+[2026-05-19 09:37:37,230] INFO GET Transactions API called
+[2026-05-19 09:41:41,788] INFO POST Transaction: {'title': 'pizza', 'amount': 5000, 'type': 'expense'}
+[2026-05-19 09:41:41,878] INFO GET Transactions API called
+[2026-05-19 09:42:15,230] INFO GET Transactions API called
+[2026-05-19 09:43:20,889] INFO GET Transactions API called
+[2026-05-19 10:03:22,322] INFO GET Transactions API called
+[2026-05-19 10:06:04,588] INFO GET Transactions API called
